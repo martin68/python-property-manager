@@ -23,7 +23,7 @@ wasn't alphabetical :-p).
 `Release 2.3`_ (2018-04-27)
 ---------------------------
 
-- Added ``property_manager.sphinx`` module to automatically generate boilerplate documentation.
+- Added ``property_manager3.sphinx`` module to automatically generate boilerplate documentation.
 - Added ``license`` and removed ``test_suite`` key in ``setup.py`` script.
 - Include documentation in source distributions.
 - Change Sphinx documentation theme.
@@ -129,16 +129,16 @@ Made it possible to opt out of usage notes.
 
 The initial commit and release. Relevant notes from the readme:
 
-The `property-manager` package came into existence as a submodule of my
+The `property-manager3` package came into existence as a submodule of my
 executor_ package where I wanted to define classes with a lot of properties
 that had a default value which was computed on demand but also needed to
 support assignment to easily override the default value.
 
 Since I created that module I'd wanted to re-use it in a couple of other
 projects I was working on, but adding an `executor` dependency just for the
-`property_manager` submodule felt kind of ugly.
+`property_manager3` submodule felt kind of ugly.
 
-This is when I decided that it was time for the `property-manager` package to
+This is when I decided that it was time for the `property-manager3` package to
 be created. When I extracted the submodule from `executor` I significantly
 changed its implementation (making the code more robust and flexible) and
 improved the tests, documentation and coverage in the process.

@@ -2,20 +2,20 @@ API documentation
 =================
 
 The following API documentation was automatically generated from the source
-code of `property-manager` |release|:
+code of `property-manager3` |release|:
 
 .. contents::
    :local:
 
-:mod:`property_manager`
+:mod:`property_manager3`
 -----------------------
 
-.. automodule:: property_manager
+.. automodule:: property_manager3
    :members:
 
 
-:mod:`property_manager.sphinx`
+:mod:`property_manager3.sphinx`
 ------------------------------
 
-.. automodule:: property_manager.sphinx
+.. automodule:: property_manager3.sphinx
    :members:

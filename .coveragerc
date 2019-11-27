@@ -2,7 +2,7 @@
 # http://nedbatchelder.com/code/coverage/
 
 [run]
-source = property_manager
-omit = property_manager/tests.py
+source = property_manager3
+omit = property_manager3/tests.py
 
 # vim: ft=dosini

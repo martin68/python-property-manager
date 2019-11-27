@@ -1,10 +1,10 @@
-# Makefile for the `property-manager' package.
+# Makefile for the `property-manager3' package.
 #
 # Author: Peter Odding <peter@peterodding.com>
 # Last Change: June 29, 2017
-# URL: https://github.com/xolox/python-property-manager
+# URL: https://github.com/martin68/python-property-manager3
 
-PACKAGE_NAME = property-manager
+PACKAGE_NAME = property-manager3
 WORKON_HOME ?= $(HOME)/.virtualenvs
 VIRTUAL_ENV ?= $(WORKON_HOME)/$(PACKAGE_NAME)
 PATH := $(VIRTUAL_ENV)/bin:$(PATH)

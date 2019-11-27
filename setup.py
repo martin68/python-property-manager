@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""Setup script for the `property-manager` package."""
+"""Setup script for the `property-manager3` package."""
 
 # Author: Peter Odding <peter@peterodding.com>
 # Last Change: April 27, 2018
@@ -46,8 +46,8 @@ def get_absolute_path(*args):
     return os.path.join(os.path.dirname(os.path.abspath(__file__)), *args)
 
 
-setup(name="property-manager",
-      version=get_version('property_manager', '__init__.py'),
+setup(name="property-manager3",
+      version=get_version('property_manager3', '__init__.py'),
       description=("Useful property variants for Python programming (required"
                    " properties, writable properties, cached properties, etc)"),
       long_description=get_contents('README.rst'),
@@ -74,6 +74,8 @@ setup(name="property-manager",
           'Programming Language :: Python :: 3.4',
           'Programming Language :: Python :: 3.5',
           'Programming Language :: Python :: 3.6',
+          'Programming Language :: Python :: 3.7',
+          'Programming Language :: Python :: 3.8',
           'Programming Language :: Python :: Implementation :: CPython',
           'Programming Language :: Python :: Implementation :: PyPy',
           'Topic :: Documentation :: Sphinx',

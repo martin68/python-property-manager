@@ -10,7 +10,7 @@ Useful :class:`property` variants for Python programming.
 Introduction
 ============
 
-The :mod:`property_manager` module defines several :class:`property` variants
+The :mod:`property_manager3` module defines several :class:`property` variants
 that implement Python's `descriptor protocol`_ to provide decorators that turn
 methods into computed properties with several additional features.
 
@@ -39,25 +39,25 @@ property that supports assignment) this is also possible, please take a look at
 The following inheritance diagram shows how the predefined :class:`property`
 variants relate to each other:
 
-.. inheritance-diagram:: property_manager.custom_property \
-                         property_manager.writable_property \
-                         property_manager.mutable_property \
-                         property_manager.required_property \
-                         property_manager.key_property \
-                         property_manager.lazy_property \
-                         property_manager.cached_property
+.. inheritance-diagram:: property_manager3.custom_property \
+                         property_manager3.writable_property \
+                         property_manager3.mutable_property \
+                         property_manager3.required_property \
+                         property_manager3.key_property \
+                         property_manager3.lazy_property \
+                         property_manager3.cached_property
    :parts: 1
 
 The property manager superclass
 -------------------------------
 
-In addition to these :class:`property` variants the :mod:`property_manager`
+In addition to these :class:`property` variants the :mod:`property_manager3`
 module also defines a :class:`PropertyManager` class which implements several
 related enhancements:
 
 - Keyword arguments to the constructor can be used to set writable properties
   created using any of the :class:`property` variants defined by the
-  :mod:`property_manager` module.
+  :mod:`property_manager3` module.
 
 - Required properties without an assigned value will cause the constructor
   to raise an appropriate exception (:exc:`~exceptions.TypeError`).
@@ -70,7 +70,7 @@ related enhancements:
 Logging
 =======
 
-The :mod:`property_manager` module emits log messages at the custom log level
+The :mod:`property_manager3` module emits log messages at the custom log level
 :data:`~verboselogs.SPAM` which is considered *more* verbose than
 :data:`~logging.DEBUG`, so if you want these messages to be logged
 make sure they're not being ignored based on their level.
@@ -113,7 +113,7 @@ We detect whether Sphinx is running by checking for the presence of the
 value of :data:`USAGE_NOTES_ENABLED`.
 """
 
-USAGE_NOTES_VARIABLE = 'PROPERTY_MANAGER_USAGE_NOTES'
+USAGE_NOTES_VARIABLE = 'property_manager3_USAGE_NOTES'
 """The name of the environment variable that controls whether usage notes are enabled (a string)."""
 
 USAGE_NOTES_ENABLED = (coerce_boolean(os.environ[USAGE_NOTES_VARIABLE])
@@ -194,7 +194,7 @@ def set_property(obj, name, value):
     This function directly modifies the :attr:`~object.__dict__` of the given
     object and as such it avoids any interaction with object properties. This
     is intentional: :func:`set_property()` is meant to be used by extensions of
-    the `property-manager` project and by user defined setter methods.
+    the `property-manager3` project and by user defined setter methods.
     """
     logger.spam("Setting value of %s property to %r ..", format_property(obj, name), value)
     obj.__dict__[name] = value
@@ -210,7 +210,7 @@ def clear_property(obj, name):
     This function directly modifies the :attr:`~object.__dict__` of the given
     object and as such it avoids any interaction with object properties. This
     is intentional: :func:`clear_property()` is meant to be used by extensions
-    of the `property-manager` project and by user defined deleter methods.
+    of the `property-manager3` project and by user defined deleter methods.
     """
     logger.spam("Clearing value of %s property ..", format_property(obj, name))
     obj.__dict__.pop(name, None)
@@ -361,7 +361,7 @@ class PropertyManager(object):
 
         This method generates a user friendly textual representation for
         objects that use computed properties created using the
-        :mod:`property_manager` module.
+        :mod:`property_manager3` module.
         """
         fields = []
         for name in names:
@@ -534,7 +534,7 @@ class custom_property(property):
 
     .. code-block:: python
 
-       from property_manager import PropertyManager, required_property, mutable_property
+       from property_manager3 import PropertyManager, required_property, mutable_property
 
        class Example(PropertyManager):
 
@@ -551,7 +551,7 @@ class custom_property(property):
 
     >>> Example()
     Traceback (most recent call last):
-      File "property_manager/__init__.py", line 107, in __init__
+      File "property_manager3/__init__.py", line 107, in __init__
         raise TypeError("%s (%s)" % (msg, concatenate(missing_properties)))
     TypeError: missing 1 required argument ('important')
 
@@ -622,7 +622,7 @@ class custom_property(property):
 
         .. code-block:: python
 
-           from property_manager import custom_property
+           from property_manager3 import custom_property
 
            class WritableCachedPropertyDemo(object):
 
@@ -636,7 +636,7 @@ class custom_property(property):
 
         .. code-block:: python
 
-           from property_manager import cached_property
+           from property_manager3 import cached_property
 
            class WritableCachedPropertyDemo(object):
 
@@ -645,7 +645,7 @@ class custom_property(property):
                    return 42
 
         Basically you can take any of the custom property classes defined in
-        the :mod:`property_manager` module and call the class with keyword
+        the :mod:`property_manager3` module and call the class with keyword
         arguments corresponding to the options you'd like to change.
         """
         if options:

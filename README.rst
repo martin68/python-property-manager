@@ -1,4 +1,4 @@
-property-manager: Useful property variants for Python programming
+property-manager3: Useful property variants for Python programming
 =================================================================
 
 .. image:: https://travis-ci.org/xolox/python-property-manager.svg?branch=master
@@ -7,7 +7,7 @@ property-manager: Useful property variants for Python programming
 .. image:: https://coveralls.io/repos/xolox/python-property-manager/badge.png?branch=master
    :target: https://coveralls.io/r/xolox/python-property-manager?branch=master
 
-The `property-manager` package defines several custom property_ variants for
+The `property-manager3` package defines several custom property_ variants for
 Python programming including required properties, writable properties, cached
 properties, etc. It's currently tested on Python 2.6, 2.7, 3.4, 3.5, 3.6, 3.7, 3.8 and
 PyPy. For usage instructions please refer to the documentation_.
@@ -18,16 +18,16 @@ PyPy. For usage instructions please refer to the documentation_.
 Status
 ------
 
-The `property-manager` package came into existence as a submodule of my
+The `property-manager3` package came into existence as a submodule of my
 executor_ package where I wanted to define classes with a lot of properties
 that had a default value which was computed on demand but also needed to
 support assignment to easily override the default value.
 
 Since I created that module I'd wanted to re-use it in a couple of other
 projects I was working on, but adding an `executor` dependency just for the
-`property_manager` submodule felt kind of ugly.
+`property_manager3` submodule felt kind of ugly.
 
-This is when I decided that it was time for the `property-manager` package to
+This is when I decided that it was time for the `property-manager3` package to
 be created. When I extracted the submodule from `executor` I significantly
 changed its implementation (making the code more robust and flexible) and
 improved the tests, documentation and coverage in the process.
@@ -35,12 +35,12 @@ improved the tests, documentation and coverage in the process.
 Installation
 ------------
 
-The `property-manager` package is available on PyPI_ which means installation
+The `property-manager3` package is available on PyPI_ which means installation
 should be as simple as:
 
 .. code-block:: sh
 
-   $ pip install property-manager
+   $ pip install property-manager3
 
 There's actually a multitude of ways to install Python packages (e.g. the `per
 user site-packages directory`_, `virtual environments`_ or just installing
@@ -66,7 +66,7 @@ writable_property_ decorator:
 .. code-block:: python
 
    from random import random
-   from property_manager import writable_property
+   from property_manager3 import writable_property
 
    class WritablePropertyDemo(object):
 
@@ -93,7 +93,7 @@ to revert back to the computed value:
 
 >>> delattr(instance, 'change_me')
 Traceback (most recent call last):
-  File "property_manager/__init__.py", line 584, in __delete__
+  File "property_manager3/__init__.py", line 584, in __delete__
     raise AttributeError(msg % (obj.__class__.__name__, self.__name__))
 AttributeError: 'WritablePropertyDemo' object attribute 'change_me' is read-only
 
@@ -107,7 +107,7 @@ The required_property_ decorator can be used to create required properties:
 
 .. code-block:: python
 
-   from property_manager import PropertyManager, required_property
+   from property_manager3 import PropertyManager, required_property
 
    class RequiredPropertyDemo(PropertyManager):
 
@@ -120,7 +120,7 @@ the class and find out:
 
 >>> instance = RequiredPropertyDemo()
 Traceback (most recent call last):
-  File "property_manager/__init__.py", line 131, in __init__
+  File "property_manager3/__init__.py", line 131, in __init__
     raise TypeError("%s (%s)" % (msg, concatenate(missing_properties)))
 TypeError: missing 1 required argument (important)
 
@@ -146,7 +146,7 @@ Two kinds of cached properties are supported, we'll show both here:
 .. code-block:: python
 
    from random import random
-   from property_manager import cached_property, lazy_property
+   from property_manager3 import cached_property, lazy_property
 
    class CachedPropertyDemo(object):
 
@@ -190,7 +190,7 @@ Calculating non-idempotent property ..
 0.27632566561900895
 >>> del instance.non_idempotent
 Traceback (most recent call last):
-  File "property_manager/__init__.py", line 499, in __delete__
+  File "property_manager3/__init__.py", line 499, in __delete__
     raise AttributeError(msg % (obj.__class__.__name__, self.__name__))
 AttributeError: 'CachedPropertyDemo' object attribute 'non_idempotent' is read-only
 >>> instance.non_idempotent
@@ -206,7 +206,7 @@ property's value from the environment:
 .. code-block:: python
 
    from random import random
-   from property_manager import mutable_property
+   from property_manager3 import mutable_property
 
    class EnvironmentPropertyDemo(object):
 
@@ -271,7 +271,7 @@ following behavior is made available to your class:
 - The `clear_cached_properties()`_ method can be used to invalidate the cached
   values of all cached properties at once.
 
-Additionally you can use the property_manager.sphinx_ module as a Sphinx
+Additionally you can use the property_manager3.sphinx_ module as a Sphinx
 extension to automatically generate boilerplate documentation that provides an
 overview of base classes, properties, public methods and special methods.
 
@@ -284,7 +284,7 @@ properties with similar semantics:
 `cached-property <https://pypi.python.org/pypi/cached-property>`_
  My personal favorite until I wrote my own :-). This package provides several
  cached property variants. It supports threading and time based cache
- invalidation which `property-manager` doesn't support.
+ invalidation which `property-manager3` doesn't support.
 
 `lazy-property <https://pypi.python.org/pypi/lazy-property>`_
  This package provides two cached property variants: a read only property and
@@ -301,7 +301,7 @@ properties with similar semantics:
 `propertylib <https://pypi.python.org/pypi/propertylib>`_
  This package uses metaclasses to implement an alternative syntax for defining
  computed properties. It defines several property variants with semantics that
- are similar to those defined by the `property-manager` package.
+ are similar to those defined by the `property-manager3` package.
 
 `rwproperty <https://pypi.python.org/pypi/rwproperty>`_
  This package implements computed, writable properties using an alternative
@@ -311,7 +311,7 @@ Distinguishing features
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Despite all of the existing Python packages discussed above I decided to create
-and publish the `property-manager` package because it was fun to get to know
+and publish the `property-manager3` package because it was fun to get to know
 Python's `descriptor protocol`_ and I had several features in mind I couldn't
 find anywhere else:
 
@@ -328,12 +328,12 @@ find anywhere else:
 - An easy way to quickly invalidate all cached properties of an object.
 
 - An easy way to change the semantics of custom properties, e.g. what if the
-  user wants a writable cached property? With `property-manager` it is trivial
+  user wants a writable cached property? With `property-manager3` it is trivial
   to define new property variants by combining existing semantics:
 
   .. code-block:: python
 
-     from property_manager import cached_property
+     from property_manager3 import cached_property
 
      class WritableCachedPropertyDemo(object):
 
@@ -346,7 +346,7 @@ find anywhere else:
 
   .. code-block:: python
 
-     from property_manager import cached_property
+     from property_manager3 import cached_property
 
      writable_cached_property = cached_property(writable=True)
 
@@ -361,7 +361,7 @@ find anywhere else:
 
   .. code-block:: python
 
-     from property_manager import cached_property
+     from property_manager3 import cached_property
 
      class writable_cached_property(cached_property):
 
@@ -378,7 +378,7 @@ find anywhere else:
   I've used computed properties for years in Python and over those years I've
   learned that different Python projects have different requirements from
   custom property variants. Defining every possible permutation up front is
-  madness, but I think that the flexibility with which the `property-manager`
+  madness, but I think that the flexibility with which the `property-manager3`
   package enables adaptation gets a long way. This was the one thing that
   bothered me the most about all of the other Python packages that implement
   property variants: They are not easily adapted to unanticipated use cases.
@@ -386,7 +386,7 @@ find anywhere else:
 Contact
 -------
 
-The latest version of `property-manager` is available on PyPI_ and GitHub_. The
+The latest version of `property-manager3` is available on PyPI_ and GitHub_. The
 documentation is hosted on `Read the Docs`_ and includes a changelog_. For bug
 reports please create an issue on GitHub_. If you have questions, suggestions,
 etc. feel free to send me an e-mail at `peter@peterodding.com`_.
@@ -408,14 +408,14 @@ This software is licensed under the `MIT license`_.
 .. _descriptor protocol: https://docs.python.org/2/howto/descriptor.html
 .. _documentation: https://property-manager.readthedocs.org
 .. _executor: https://executor.readthedocs.org/en/latest/
-.. _GitHub: https://github.com/xolox/python-property-manager
+.. _GitHub: https://github.com/martin68/python-property-manager3
 .. _lazy_property: https://property-manager.readthedocs.org/en/latest/api.html#property_manager.lazy_property
 .. _MIT license: http://en.wikipedia.org/wiki/MIT_License
 .. _mutable_property: https://property-manager.readthedocs.org/en/latest/api.html#property_manager.mutable_property
 .. _per user site-packages directory: https://www.python.org/dev/peps/pep-0370/
 .. _peter@peterodding.com: peter@peterodding.com
 .. _property: https://docs.python.org/2/library/functions.html#property
-.. _property_manager.sphinx: https://property-manager.readthedocs.org/en/latest/api.html#property_manager.sphinx
+.. _property_manager3.sphinx: https://property-manager.readthedocs.org/en/latest/api.html#property_manager.sphinx
 .. _PropertyManager: https://property-manager.readthedocs.org/en/latest/api.html#property_manager.PropertyManager
 .. _PyPI: https://pypi.python.org/pypi/property-manager
 .. _Read the Docs: https://property-manager.readthedocs.org

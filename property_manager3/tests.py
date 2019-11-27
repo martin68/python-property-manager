@@ -4,7 +4,7 @@
 # Last Change: April 27, 2018
 # URL: https://property-manager.readthedocs.org
 
-"""Automated tests for the :mod:`property_manager` module."""
+"""Automated tests for the :mod:`property_manager3` module."""
 
 # Standard library modules.
 import logging
@@ -19,8 +19,8 @@ from humanfriendly import compact, format
 from verboselogs import VerboseLogger
 
 # Modules included in our package.
-import property_manager
-from property_manager import (
+import property_manager3
+from property_manager3 import (
     CACHED_PROPERTY_NOTE,
     CUSTOM_PROPERTY_NOTE,
     DYNAMIC_PROPERTY_NOTE,
@@ -38,7 +38,7 @@ from property_manager import (
     required_property,
     writable_property,
 )
-from property_manager.sphinx import TypeInspector, setup, append_property_docs
+from property_manager3.sphinx import TypeInspector, setup, append_property_docs
 
 # Initialize a logger for this module.
 logger = VerboseLogger(__name__)
@@ -46,11 +46,11 @@ logger = VerboseLogger(__name__)
 
 class PropertyManagerTestCase(unittest.TestCase):
 
-    """Container for the :mod:`property_manager` test suite."""
+    """Container for the :mod:`property_manager3` test suite."""
 
     def setUp(self):
         """Enable verbose logging and usage notes."""
-        property_manager.USAGE_NOTES_ENABLED = True
+        property_manager3.USAGE_NOTES_ENABLED = True
         coloredlogs.install(level=logging.NOTSET)
         # Separate the name of the test method (printed by the superclass
         # and/or py.test without a newline at the end) from the first line of
@@ -160,7 +160,7 @@ class PropertyManagerTestCase(unittest.TestCase):
 
     def test_environment_property(self):
         """Test that custom properties can be based on environment variables."""
-        variable_name = 'PROPERTY_MANAGER_TEST_VALUE'
+        variable_name = 'property_manager3_TEST_VALUE'
 
         class EnvironmentPropertyTest(object):
             @mutable_property(environment_variable=variable_name)
@@ -189,7 +189,7 @@ class PropertyManagerTestCase(unittest.TestCase):
             assert p.value != value_from_environment
             p.check_usage_notes()
 
-    def test_property_manager_repr(self):
+    def test_property_manager3_repr(self):
         """Test :func:`repr()` rendering of :class:`PropertyManager` objects."""
         class RepresentationTest(PropertyManager):
             @required_property
@@ -386,7 +386,7 @@ class PropertyManagerTestCase(unittest.TestCase):
             self.assertRaises(TypeError, lambda: instance >= arbitrary_object or instance <= arbitrary_object)
 
     def test_sphinx_integration(self):
-        """Tests for the :mod:`property_manager.sphinx` module."""
+        """Tests for the :mod:`property_manager3.sphinx` module."""
         class FakeApp(object):
 
             def __init__(self):
@@ -471,7 +471,7 @@ class PropertyInspector(object):
         in :class:`property` class so that introspection of class members using
         :func:`isinstance()` correctly recognizes properties as such, even for
         code which is otherwise unaware of the custom properties defined by the
-        :mod:`property_manager` module.
+        :mod:`property_manager3` module.
         """
         return isinstance(self.property_object, property)
 

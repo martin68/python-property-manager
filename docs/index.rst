@@ -1,7 +1,7 @@
-Documentation for property-manager
+Documentation for property-manager3
 ==================================
 
-Welcome to the documentation of `property-manager` version |release|!
+Welcome to the documentation of `property-manager3` version |release|!
 The following sections are available:
 
 .. contents::

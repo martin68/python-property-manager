@@ -7,7 +7,7 @@
 """
 Integration with the Sphinx_ documentation generator.
 
-The :mod:`property_manager.sphinx` module uses the `Sphinx extension API`_ to
+The :mod:`property_manager3.sphinx` module uses the `Sphinx extension API`_ to
 customize the process of generating Sphinx based Python documentation. It
 modifies the documentation of :class:`.PropertyManager` subclasses to include
 an overview of superclasses, properties, public methods and special methods. It
@@ -26,7 +26,7 @@ The entry point to this module is the :func:`setup()` function.
 import types
 
 # Modules included in our package.
-from property_manager import PropertyManager, custom_property, lazy_property, required_property
+from property_manager3 import PropertyManager, custom_property, lazy_property, required_property
 from humanfriendly import compact, concatenate, format
 from humanfriendly.tables import format_rst_table
 
@@ -40,7 +40,7 @@ __all__ = (
 
 def setup(app):
     """
-    Make it possible to use :mod:`property_manager.sphinx` as a Sphinx extension.
+    Make it possible to use :mod:`property_manager3.sphinx` as a Sphinx extension.
 
     :param app: The Sphinx application object.
 
@@ -52,10 +52,10 @@ def setup(app):
        extensions = [
            'sphinx.ext.autodoc',
            'sphinx.ext.intersphinx',
-           'property_manager.sphinx',
+           'property_manager3.sphinx',
        ]
 
-    When Sphinx sees the :mod:`property_manager.sphinx` name it will import
+    When Sphinx sees the :mod:`property_manager3.sphinx` name it will import
     this module and call the :func:`setup()` function which will connect the
     :func:`append_property_docs()` function to ``autodoc-process-docstring``
     events.
