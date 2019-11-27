@@ -1,5 +1,5 @@
 property-manager3: Useful property variants for Python programming
-=================================================================
+==================================================================
 
 .. image:: https://travis-ci.org/xolox/python-property-manager.svg?branch=master
    :target: https://travis-ci.org/xolox/python-property-manager
