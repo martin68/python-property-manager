@@ -417,7 +417,7 @@ This software is licensed under the `MIT license`_.
 .. _property: https://docs.python.org/2/library/functions.html#property
 .. _property_manager3.sphinx: https://property-manager.readthedocs.org/en/latest/api.html#property_manager.sphinx
 .. _PropertyManager: https://property-manager.readthedocs.org/en/latest/api.html#property_manager.PropertyManager
-.. _PyPI: https://pypi.python.org/pypi/property-manager
+.. _PyPI: https://pypi.python.org/pypi/property-manager3
 .. _Read the Docs: https://property-manager.readthedocs.org
 .. _required_property: https://property-manager.readthedocs.org/en/latest/api.html#property_manager.required_property
 .. _virtual environments: http://docs.python-guide.org/en/latest/dev/virtualenvs/
